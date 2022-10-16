@@ -14,7 +14,15 @@ class BinarySearchTree {
     return this.tree;
   }
 
-  
+  add(data) {
+    this.tree = addWithin(this.tree, data);
+    function addWithin(node, data) {
+      if (!node) {
+        return new Node(data);
+      }
+      if (node.data === data) {
+        return node;
+      }
       if (data < node.data) {
         node.left = addWithin(node.left, data);
       } else {
